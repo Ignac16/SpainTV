@@ -15,11 +15,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.Tv
+import androidx.compose.material.icons.rounded.Favorite
+import androidx.compose.material.icons.rounded.Home
+import androidx.compose.material.icons.rounded.Menu
+import androidx.compose.material.icons.rounded.Settings
+import androidx.compose.material.icons.rounded.Tv
 import androidx.compose.material3.Icon
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -159,11 +159,11 @@ fun BottomNavBar(
                     ) {
                         Icon(
                             imageVector = when (destination) {
-                                NavigationDestination.Home -> Icons.Default.Home
-                                NavigationDestination.Channels -> Icons.Default.Tv
-                                NavigationDestination.Guide -> Icons.Default.Menu
-                                NavigationDestination.Favourites -> Icons.Default.Favorite
-                                NavigationDestination.Settings -> Icons.Default.Settings
+                                NavigationDestination.Home -> Icons.Rounded.Home
+                                NavigationDestination.Channels -> Icons.Rounded.Tv
+                                NavigationDestination.Guide -> Icons.Rounded.Menu
+                                NavigationDestination.Favourites -> Icons.Rounded.Favorite
+                                NavigationDestination.Settings -> Icons.Rounded.Settings
                             },
                             contentDescription = destination.label,
                             tint = if (selected) colors.tabBarBackground else tintColor,

@@ -5,11 +5,9 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.igformatico.spaintv.R
 
 data class AppleColors(
     val background: Color,
@@ -28,12 +26,7 @@ data class AppleTypography(
     val tabLabel: TextStyle
 )
 
-private val SfPro = FontFamily(
-    Font(R.font.sf_pro_regular, FontWeight.Normal),
-    Font(R.font.sf_pro_medium, FontWeight.Medium),
-    Font(R.font.sf_pro_semibold, FontWeight.SemiBold),
-    Font(R.font.sf_pro_bold, FontWeight.Bold)
-)
+private val SfPro = FontFamily.SansSerif
 
 val LocalAppleColors = staticCompositionLocalOf {
     AppleColors(

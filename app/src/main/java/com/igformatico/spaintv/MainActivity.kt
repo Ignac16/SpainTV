@@ -22,11 +22,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeEffect
 import dev.chrisbanes.haze.hazeSource
 import dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi
 import dev.chrisbanes.haze.materials.HazeMaterials
-import dev.chrisbanes.haze.rememberHazeState
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -60,7 +60,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
     var currentDestination by remember { mutableStateOf<NavigationDestination>(NavigationDestination.Home) }
     val colors = LocalAppleColors.current
     val tabBarBottomPadding = 108.dp
-    val hazeState = rememberHazeState()
+    val hazeState = remember { HazeState() }
 
     Box(
         modifier = modifier

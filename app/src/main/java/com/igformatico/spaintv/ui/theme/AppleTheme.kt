@@ -42,7 +42,7 @@ val LocalAppleColors = staticCompositionLocalOf {
         tabSelectionGlow = Color(0x665AC8FA),
         textPrimary = Color(0xFF000000),
         textSecondary = Color(0xFF8E8E93),
-        accent = Color(0xFFFF3B30)
+        accent = Color(0xFF007AFF)
     )
 }
 

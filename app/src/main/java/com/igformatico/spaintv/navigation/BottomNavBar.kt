@@ -1,9 +1,7 @@
 package com.igformatico.spaintv.navigation
 
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -80,12 +78,6 @@ fun BottomNavBar(
             destinations.forEach { destination ->
                 val selected = currentDestination.route == destination.route
 
-                val iconTileColor = animateColorAsState(
-                    targetValue = if (selected) colors.accent else colors.tabIconTile,
-                    animationSpec = tween(220),
-                    label = "iconTileColor"
-                ).value
-
                 val glowSize = animateDpAsState(
                     targetValue = if (selected) 52.dp else 0.dp,
                     animationSpec = spring(dampingRatio = 0.7f, stiffness = 380f),
@@ -117,7 +109,7 @@ fun BottomNavBar(
                             modifier = Modifier
                                 .size(34.dp)
                                 .clip(RoundedCornerShape(9.dp))
-                                .background(iconTileColor),
+                                .background(colors.tabIconTile),
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(

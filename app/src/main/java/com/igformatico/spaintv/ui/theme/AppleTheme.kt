@@ -16,6 +16,8 @@ data class AppleColors(
     val tabBarBackground: Color,
     val tabBarHighlight: Color,
     val tabBarBorder: Color,
+    val tabIconTile: Color,
+    val tabSelectionGlow: Color,
     val textPrimary: Color,
     val textSecondary: Color,
     val accent: Color
@@ -33,12 +35,14 @@ val LocalAppleColors = staticCompositionLocalOf {
         background = Color(0xFFF4F6FF),
         backgroundTop = Color(0xFFEAF1FF),
         backgroundBottom = Color(0xFFF9FAFF),
-        tabBarBackground = Color(0x99FFFFFF),
-        tabBarHighlight = Color(0x66FFFFFF),
-        tabBarBorder = Color(0x40A9B8FF),
-        textPrimary = Color(0xFF0E1020),
-        textSecondary = Color(0xFF7C83A1),
-        accent = Color(0xFF3E6BFF)
+        tabBarBackground = Color(0xB8FFFFFF),
+        tabBarHighlight = Color(0xE6FFFFFF),
+        tabBarBorder = Color(0x66FFFFFF),
+        tabIconTile = Color(0xFF1C1C1E),
+        tabSelectionGlow = Color(0x665AC8FA),
+        textPrimary = Color(0xFF000000),
+        textSecondary = Color(0xFF8E8E93),
+        accent = Color(0xFFFF3B30)
     )
 }
 

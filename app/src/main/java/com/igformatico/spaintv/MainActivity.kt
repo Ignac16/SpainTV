@@ -22,6 +22,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import dev.chrisbanes.haze.haze
+import dev.chrisbanes.haze.hazeChild
+import dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi
+import dev.chrisbanes.haze.materials.HazeMaterials
+import dev.chrisbanes.haze.rememberHazeState
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,11 +54,13 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalHazeMaterialsApi::class)
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     var currentDestination by remember { mutableStateOf<NavigationDestination>(NavigationDestination.Home) }
     val colors = LocalAppleColors.current
-    val tabBarHeight = 84.dp
+    val tabBarBottomPadding = 108.dp
+    val hazeState = rememberHazeState()
 
     Box(
         modifier = modifier
@@ -63,9 +70,10 @@ fun MainScreen(modifier: Modifier = Modifier) {
                     colors = listOf(colors.backgroundTop, colors.backgroundBottom)
                 )
             )
+            .haze(state = hazeState)
     ) {
         // Content area with bottom padding so it doesn't overlap the tab bar.
-        Box(modifier = Modifier.fillMaxSize().padding(bottom = tabBarHeight + 12.dp)) {
+        Box(modifier = Modifier.fillMaxSize().padding(bottom = tabBarBottomPadding)) {
             AnimatedContent(
                 targetState = currentDestination,
                 transitionSpec = {
@@ -97,9 +105,12 @@ fun MainScreen(modifier: Modifier = Modifier) {
             },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .fillMaxWidth(fraction = 0.92f)
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            barHeight = tabBarHeight
+                .fillMaxWidth(fraction = 0.94f)
+                .padding(horizontal = 12.dp, vertical = 20.dp)
+                .hazeChild(
+                    state = hazeState,
+                    style = HazeMaterials.ultraThin()
+                )
         )
     }
 }

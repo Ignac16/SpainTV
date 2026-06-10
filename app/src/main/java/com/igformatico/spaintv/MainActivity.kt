@@ -22,8 +22,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import dev.chrisbanes.haze.haze
-import dev.chrisbanes.haze.hazeChild
+import dev.chrisbanes.haze.hazeEffect
+import dev.chrisbanes.haze.hazeSource
 import dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi
 import dev.chrisbanes.haze.materials.HazeMaterials
 import dev.chrisbanes.haze.rememberHazeState
@@ -70,7 +70,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                     colors = listOf(colors.backgroundTop, colors.backgroundBottom)
                 )
             )
-            .haze(state = hazeState)
+            .hazeSource(state = hazeState)
     ) {
         // Content area with bottom padding so it doesn't overlap the tab bar.
         Box(modifier = Modifier.fillMaxSize().padding(bottom = tabBarBottomPadding)) {
@@ -107,7 +107,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth(fraction = 0.94f)
                 .padding(horizontal = 12.dp, vertical = 20.dp)
-                .hazeChild(
+                .hazeEffect(
                     state = hazeState,
                     style = HazeMaterials.ultraThin()
                 )
@@ -115,6 +115,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
     }
 }
 
+@OptIn(ExperimentalHazeMaterialsApi::class)
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
